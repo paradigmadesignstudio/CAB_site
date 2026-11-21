@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "title": "Cartudo | Raio-X e gestão para oficinas | CAB",
+    "description": "Raio-X do veículo e gestão financeira integrados para oficinas: orçamentos com evidências, precificação correta e acompanhamento do lucro real."
+  },
+  "hero": {
+    "badge": "Gestão e Raio-X integrados",
+    "title": "O fim do achismo na sua oficina",
+    "description": "Chega de decisões no escuro. Com a união do Raio-X e da Gestão Financeira, você identifica oportunidades, precifica corretamente seus serviços e acompanha o lucro real da sua oficina."
+  },
+  "raiox": {
+    "title": "Raio-X do Veículo",
+    "subtitle": "Orçamentos que se vendem sozinhos.",
+    "description": "Comprove seu diagnóstico através de um laudo profissional, com fotos e histórico detalhado do serviço executado. Não é sobre preço, é sobre confiança e segurança!",
+    "features": [
+      {
+        "icon": "Camera",
+        "title": "Check List Completo",
+        "text": "Registre a entrada do veículo na oficina, bem como todo o andamento do serviço, com fotos, se proteger e proteger seu cliente de qualquer dúvida ou problema futuro!"
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Validação e Segurança",
+        "text": "Entregue um Laudo Digital para seu cliente e registre a garantia do serviço prestado!"
+      },
+      {
+        "icon": "FileSignature",
+        "title": "Aprovação Rápida e Simples",
+        "text": "Avaliação do mêcanico, checagem de peças, validação da gerência, gere um orçamento rápido onde o cliente aprove de maneira simples e prática!"
+      }
+    ]
+  },
+  "management": {
+    "title": "Gestão Inteligente",
+    "subtitle": "O Controle Absoluto do seu Caixa.",
+    "description": "Troque o caderninho e as planilhas soltas por previsibilidade. De nada adianta ter a oficina lotada de carros se o dinheiro some no final do mês. Saiba exatamente onde está o seu lucro.",
+    "features": [
+      {
+        "icon": "Settings2",
+        "title": "Domínio das OS",
+        "text": "Controle cada etapa do veículo, da abertura da Ordem de Serviço até a entrega da chave e o comissionamento do mecânico."
+      },
+      {
+        "icon": "Wrench",
+        "title": "Estoque Blindado",
+        "text": "Controle rigoroso de peças e litros de fluidos. Nunca mais tome prejuízo por esquecer de cobrar um componente do cliente."
+      },
+      {
+        "icon": "Target",
+        "title": "Métricas de Dono",
+        "text": "Pare de adivinhar. O sistema revela a sua margem de lucro real por serviço e o ticket médio da sua oficina."
+      }
+    ]
+  },
+  "bentoSection": {
+    "title": "Ferramentas que mudam o jogo",
+    "description": "Funcionalidades desenhadas especificamente para a realidade mecânica."
+  },
+  "bentoFeatures": [
+    {
+      "colSpan": "md:col-span-2",
+      "icon": "Calculator",
+      "title": "Calculadora de Hora/Mecânico",
+      "description": "Uma ferramenta exclusiva CAB. Insira seus custos fixos e os dias trabalhados. O sistema revela o valor exato que você deve cobrar por hora para a oficina ser altamente lucrativa. Nunca mais pague para trabalhar."
+    },
+    {
+      "colSpan": "md:col-span-1",
+      "icon": "TrendingUp",
+      "title": "DRE Automático",
+      "description": "Cruze custos com as suas vendas. Saiba com precisão cirúrgica se o mês deu lucro ou prejuízo."
+    },
+    {
+      "colSpan": "md:col-span-3",
+      "icon": "Database",
+      "title": "Histórico Nacional por Placa",
+      "description": "Toda vez que um Raio-X é finalizado, a placa ganha um prontuário na base de dados. Acesse o histórico de manutenções de um veículo para acelerar o seu diagnóstico antes mesmo de colocar a mão na graxa."
+    }
+  ],
+  "finalCTA": {
+    "title": "O Cartudo está chegando.",
+    "description": "Estamos finalizando o módulo de Raio-X e gestão integrada. Em breve, assinantes CAB poderão ativar o Cartudo nos planos da rede.",
+    "badge": "Ainda não disponível",
+    "buttonText": "Conhecer planos atuais",
+    "link": "/planos"
+  }
+}

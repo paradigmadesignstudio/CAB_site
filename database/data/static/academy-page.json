@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "title": "Academia CAB | Material técnico para reparadores",
+    "description": "Material técnico, cursos e eventos de estudo sobre transmissões e tendências do mercado, com apoio da CAB para o reparador tirar dúvidas."
+  },
+  "hero": {
+    "badge": "ACADEMIA CAB",
+    "title": "Aprenda com os",
+    "titleHighlight": "melhores especialistas",
+    "description": "Cursos online, materiais gratuitos e conhecimento técnico de ponta para profissionais de transmissão automática.",
+    "primaryCta": {
+      "label": "Ver materiais gratuitos",
+      "href": "#materiais-gratuitos"
+    },
+    "secondaryCta": {
+      "label": "Conhecer benefícios",
+      "href": "#beneficios"
+    }
+  },
+  "platformMaterialsSection": {
+    "label": "Biblioteca CAB",
+    "title": "Dicas e materiais",
+    "titleHighlight": "técnicos",
+    "description": "Artigos, informativos e boletins da plataforma CAB para consulta na bancada — o mesmo acervo exclusivo dos assinantes.",
+    "featuredCount": 6,
+    "exclusiveBadge": "Conteúdo exclusivo",
+    "catalog": {
+      "title": "Explorar por categoria",
+      "description": "Navegue pelo acervo completo de materiais técnicos disponíveis na plataforma.",
+      "searchPlaceholder": "Buscar por transmissão, procedimento ou tema...",
+      "emptyResults": "Nenhum material encontrado para sua busca."
+    },
+    "cta": {
+      "label": "Área do Assinante",
+      "href": "https://crm.cambioautomaticodobrasil.com.br/login-associado"
+    }
+  },
+  "trainingsSection": {
+    "label": "Plataforma CAB",
+    "title": "Treinamentos técnicos",
+    "titleHighlight": "passo a passo",
+    "description": "Montagem e desmontagem de transmissões automáticas e automatizadas, com aulas gravadas para sua equipe estudar no ritmo da oficina.",
+    "evolutionNote": {
+      "title": "Plataforma em constante evolução",
+      "description": "Novos treinamentos são adicionados à plataforma a cada 2 meses."
+    },
+    "featuredCount": 8,
+    "catalog": {
+      "title": "Catálogo completo",
+      "description": "Pesquise e explore todos os treinamentos disponíveis na plataforma CAB.",
+      "searchPlaceholder": "Buscar por nome do treinamento...",
+      "emptyResults": "Nenhum treinamento encontrado para sua busca."
+    },
+    "cta": {
+      "label": "Ver planos e assinar",
+      "href": "/planos"
+    }
+  },
+  "benefitsSection": {
+    "title": "Por que se tornar",
+    "titleHighlight": "CAB?",
+    "description": "Além do conhecimento, você tem acesso a um ecossistema completo para alavancar sua oficina.",
+    "items": [
+      {
+        "icon": "BookOpen",
+        "title": "Conteúdo Técnico Exclusivo",
+        "description": "Acesso a manuais, boletins e treinamentos online."
+      },
+      {
+        "icon": "Headset",
+        "title": "Suporte Especializado",
+        "description": "Apoio técnico via WhatsApp com especialistas CAB."
+      },
+      {
+        "icon": "ShieldCheck",
+        "title": "Selo de Qualidade",
+        "description": "Certificação que destaca sua oficina no mercado."
+      },
+      {
+        "icon": "Award",
+        "title": "Marketplace de Oficinas",
+        "description": "Sua oficina no site da CAB para atrair mais clientes."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Pronto para se tornar um especialista?",
+    "description": "Junte-se a mais de 3.000 profissionais que já elevaram seu nível técnico com a Academia CAB.",
+    "buttonText": "Comece agora",
+    "link": "/planos"
+  },
+  "faq": {
+    "title": "Dúvidas Frequentes",
+    "items": [
+      {
+        "question": "Os cursos são online ou presenciais?",
+        "answer": "Todos os cursos dentro da plataforma CAB são disponibilizados em formato online, permitindo que você estude no seu ritmo e de onde estiver. Porém, a CAB também promove eventos presenciais ao longo do ano, como Imersões e o Congresso CAB, para quem busca aprofundamento prático e networking."
+      },
+      {
+        "question": "Recebo certificado ao concluir?",
+        "answer": "Sim. Os cursos que oferecem certificação disponibilizam o certificado após a conclusão dos requisitos estabelecidos."
+      },
+      {
+        "question": "Posso acessar os materiais gratuitos sem me cadastrar?",
+        "answer": "Sim. Alguns conteúdos gratuitos são disponibilizados pela CAB em canais abertos. No entanto, para acessar materiais exclusivos, cursos, manuais e recursos da plataforma, é necessário realizar seu cadastro e manter uma assinatura ativa."
+      },
+      {
+        "question": "Os cursos têm suporte para dúvidas?",
+        "answer": "Sim. Além do conteúdo dos cursos na plataforma, os assinantes contam com suporte técnico especializado, podendo esclarecer dúvidas e aprofundar conhecimentos relacionados às transmissões automáticas e automatizadas."
+      },
+      {
+        "question": "Por quanto tempo terei acesso aos cursos e materiais?",
+        "answer": "Enquanto sua assinatura estiver ativa, você terá acesso aos cursos, materiais de apoio, manuais e demais recursos disponíveis no seu plano. Além disso, a CAB também disponibiliza periodicamente conteúdos gratuitos em seus canais oficiais para toda a comunidade."
+      }
+    ]
+  }
+}

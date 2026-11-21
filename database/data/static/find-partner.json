@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "title": "Parceiros | Fornecedores para oficinas de câmbio | CAB",
+    "description": "Networking e rede de apoio da CAB para reparadores de transmissão automática, com fornecedores parceiros e material técnico do setor."
+  },
+  "hero": {
+    "badge": "Rede de Parceiros",
+    "title": "Encontre os melhores fornecedores para sua oficina",
+    "description": "Encontre empresas parceiras da CAB que oferecem peças, equipamentos, fluidos, ferramentas e soluções voltadas para o mercado de transmissões automáticas e automatizadas."
+  },
+  "listSection": {
+    "title": "Parceiros encontrados",
+    "emptyMessage": "Nenhum parceiro encontrado com os filtros selecionados.",
+    "resultsLabel": "{count} parceiro(s)"
+  },
+  "faq": {
+    "title": "Dúvidas Frequentes",
+    "items": [
+      {
+        "question": "Como faço para me tornar parceiro da CAB?",
+        "answer": "Entre em contato com nossa equipe pelo formulário acima e apresente sua empresa. Avaliamos cada parceria com base na sinergia com o mercado de transmissões automáticas e nos benefícios que ela pode gerar para os assinantes da CAB. Entraremos em contato na sequência."
+      },
+      {
+        "question": "Quais os benefícios de ser parceiro da CAB?",
+        "answer": "Os parceiros da CAB ampliam sua visibilidade junto a uma comunidade altamente qualificada de oficinas e profissionais do setor, além de participarem de eventos, ações de relacionamento e iniciativas voltadas ao desenvolvimento do mercado."
+      },
+      {
+        "question": "Minha empresa terá divulgação nos canais da CAB?",
+        "answer": "Sim. As oportunidades de divulgação incluem presença no site, participação em eventos, conteúdos institucionais e outras iniciativas voltadas à visibilidade da marca junto à comunidade CAB."
+      },
+      {
+        "question": "Posso propor projetos ou ações em conjunto com a CAB?",
+        "answer": "Com certeza! A CAB valoriza iniciativas que contribuam para o desenvolvimento do mercado de transmissões automáticas e automatizadas, estando aberta à construção de projetos, treinamentos e ações estratégicas com seus parceiros."
+      }
+    ]
+  },
+  "becomePartner": {
+    "title": "Sua empresa não está aqui?",
+    "description": "Seja um parceiro CAB e tenha acesso direto a centenas de oficinas reparadoras especializadas em todo o Brasil. Aumente sua visibilidade e impacte sua marca no mercado de transmissões automáticas.",
+    "buttonText": "Quero ser um parceiro",
+    "link": "/suporte"
+  },
+  "categories": [
+    { "value": "all", "label": "Todos" },
+    { "value": "Peças", "label": "Peças" },
+    { "value": "Serviços", "label": "Serviços" },
+    { "value": "Equipamentos", "label": "Equipamentos" },
+    { "value": "Treinamentos", "label": "Treinamentos" }
+  ]
+}

@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redireciona para HTTPS (Recomendável para produção)
+    # Remova o '#' das duas linhas abaixo se o seu SSL já estiver ativo
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Impede o acesso direto a arquivos sensíveis
+    RewriteRule ^\.(env|git) - [F,L]
+
+    # Redireciona todo o tráfego para a pasta /public
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

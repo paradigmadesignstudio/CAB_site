@@ -1,0 +1,63 @@
+{
+  "pageContent": {
+    "meta": {
+      "title": "Sobre a CAB | Câmbio Automático do Brasil",
+      "description": "Diferencial da CAB: material técnico, apoio para dúvidas sobre transmissões no sistema, rede de networking e eventos de estudo e tendências do mercado."
+    },
+    "hero": {
+      "badge": "Nossa História",
+      "titleStart": "Nascemos para ",
+      "titleHighlight": "elevar o padrão",
+      "titleEnd": " das oficinas no Brasil.",
+      "description": "Defendemos que a evolução do mercado de transmissões automáticas e automatizadas começa pelo acesso à informação técnica de qualidade."
+    },
+    "stats": [
+      { "value": "+10k", "label": "Reparadores Apoiados", "delay": 0 },
+      { "value": "12", "label": "Anos de História", "delay": 0.1 },
+      { "value": "+500", "label": "Manuais Técnicos", "delay": 0.2 },
+      { "value": "1º", "label": "Lugar no Brasil", "delay": 0.3 }
+    ],
+    "cta": {
+      "title": "Pronto para elevar o nível da sua oficina?",
+      "description": "Não fique para trás no mercado de transmissões automáticas. Junte-se à maior comunidade de especialistas do Brasil e tenha o nosso suporte ao seu lado.",
+      "primaryButton": "Conhecer a Academia CAB",
+      "primaryLink": "/academia-cab",
+      "secondaryButton": "Fale conosco",
+      "secondaryLink": "/suporte"
+    }
+  },
+  "timeline": [
+    { "year": "2014", "title": "Os Primeiros Passos", "description": "Início da nossa jornada no setor automotivo, estudando as necessidades reais dos reparadores.", "icon": "Milestone" },
+    { "year": "2016", "title": "A Idealização", "description": "Nasce a ideia de criar uma plataforma unificada para apoiar oficinas em todo o Brasil.", "icon": "Target" },
+    { "year": "2018", "title": "O Marco Histórico", "description": "A CAB torna-se a 1ª empresa brasileira focada em apoio técnico exclusivo para reparadores de transmissões automáticas e automatizadas.", "icon": "ShieldCheck" },
+    { "year": "2020", "title": "O Pioneirismo", "description": "Lançamento do primeiro e pioneiro Aplicativo Guia para troca de fluido de transmissões e serviços preventivos do mercado.", "icon": "Smartphone" }
+  ],
+  "pillars": [
+    { "title": "Laboratório CAB", "description": "Estudos técnicos ao vivo com especialistas da CAB, desenvolvendo conteúdos e treinamentos exclusivos para assinantes.", "icon": "BookOpen", "color": "text-primary", "bgColor": "bg-primary/20" },
+    { "title": "Imersão 12H", "description": "Treinamento intensivo com foco em transmissões específicas, unindo teoria e prática na bancada", "icon": "Users", "color": "text-secondary", "bgColor": "bg-secondary/20" },
+    { "title": "Congresso CAB", "description": "O maior evento do segmento no Brasil, com dois dias de prática real na bancada, networking e muito conhecimento técnico.", "icon": "Calendar", "color": "text-accent", "bgColor": "bg-accent/20" },
+    { "title": "Circuito TECNOCAB", "description": "Palestras itinerantes que levam atualização técnica e inovação para profissionais em todo o país.", "icon": "MapPin", "color": "text-emerald-600", "bgColor": "bg-emerald-600/20" }
+  ],
+  "leadership": [
+    { "name": "Pedro Power", "role": "Fundador e Diretor", "image": "/images/collaborators/Pedro-Power.webp" },
+    { "name": "Henrique Pontes", "role": "Diretor Técnico", "image": "/images/collaborators/Henrique-Pontes.webp" },
+    { "name": "Vanessa Pontes", "role": "Diretora Executiva", "image": "/images/collaborators/Vanessa-Pontes.webp" },
+    { "name": "Aline Power", "role": "Diretora Administrativa", "image": "/images/collaborators/Aline-Power.webp" }
+  ],
+  "team": [
+    { "name": "Alexandre Pelaes", "role": "Instrutor e Consultor Técnico", "image": "/images/collaborators/Alexandre-Pelaes.webp" },
+    { "name": "Carlos Marchiori", "role": "Instrutor e Supervisor do Apoio Técnico", "image": "/images/collaborators/Carlos-Marchiori.webp" },
+    { "name": "Cléber Scomparin", "role": "Instrutor e Consultor Técnico", "image": "/images/collaborators/Cleber-Scomparin.webp" },
+    { "name": "Geison Andrade", "role": "Instrutor e Consultor Técnico", "image": "/images/collaborators/Geison-Andrade.webp" },
+    { "name": "Maria Augusto", "role": "Consultora Técnica", "image": "/images/collaborators/Maria.jpeg" },
+    { "name": "Octávio Caffe", "role": "Consultor Técnico", "image": "/images/collaborators/Octavio.webp" },
+    { "name": "Gilberto Guimarães", "role": "Consultor Técnico", "image": "/images/collaborators/Guimaraes.webp" },
+    { "name": "José Edson Souza", "role": "Consultor Técnico", "image": "/images/collaborators/Edinho.webp" },
+    { "name": "Marcelo Marques", "role": "Consultor Técnico", "image": "/images/collaborators/Marcelo-Marques.webp" },
+    { "name": "Milton Buratto", "role": "Consultor Técnico", "image": "/images/collaborators/Milton-Buratto.webp" },
+    { "name": "Theo Lima", "role": "Consultor Técnico", "image": "/images/collaborators/Theo-Lima.webp" }
+  ],
+  "events": [
+    { "name": "Vanessa Motta", "role": "Eventos", "image": "/images/collaborators/Vanessa.webp" }
+  ]
+}

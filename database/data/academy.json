@@ -1,0 +1,107 @@
+{
+  "materials": [
+    {
+      "id": 1,
+      "slug": "a6gf-detalhes-tecnicos",
+      "title": "Detalhes Técnicos – Transmissão A6GF – A6MF – A6LF",
+      "description": "Informações técnicas detalhadas sobre as transmissões A6GF, A6MF e A6LF.",
+      "image": "/images/materiais-gratuitos/a6gf-detalhes-tecnicos.png",
+      "downloadUrl": "/downloads/a6gf-detalhes-tecnicos.pdf"
+    },
+    {
+      "id": 2,
+      "slug": "manual-corpo-valvulas-48re",
+      "title": "Manual do Corpo de Válvulas da Transmissão 48RE",
+      "description": "Manual completo com diagramas e especificações do corpo de válvulas 48RE.",
+      "downloadUrl": "#"
+    },
+    {
+      "id": 3,
+      "slug": "embreagens-jf015e",
+      "title": "Composição e folga das embreagens – JF015E (RE0F11A)",
+      "description": "Guia de ajuste e especificações de folga das embreagens da transmissão JF015E.",
+      "image": "/images/materiais-gratuitos/embreagens-jf015e.png",
+      "downloadUrl": "/downloads/embreagens-jf015e.pdf"
+    },
+    {
+      "id": 4,
+      "slug": "boletim-tecnico-nissan",
+      "title": "Boletim Técnico de Serviço – JF015E (DTC P0776)",
+      "description": "Diagnóstico e solução para o código de falha P0776 na transmissão JF015E.",
+      "image": "/images/materiais-gratuitos/boletim-tecnico-nissan.png",
+      "downloadUrl": "/downloads/boletim-tecnico-nissan.pdf"
+    },
+    {
+      "id": 5,
+      "slug": "dica-tecnica-09g-tf60sn",
+      "title": "DICA TÉCNICA – Transmissão 09G – 09M – 09K / TF60SN",
+      "description": "Dicas práticas para manutenção e reparo das transmissões 09G, 09M, 09K e TF60SN.",
+      "downloadUrl": "#"
+    },
+    {
+      "id": 6,
+      "slug": "dica-tecnica-09g-trocas-bruscas",
+      "title": "TROCAS BRUSCAS DE 3ª, 5ª E RÉ – Passo a passo: Como substituir a válvula termostática",
+      "description": "Procedimento detalhado para substituição da válvula termostática do corpo de válvulas.",
+      "image": "/images/materiais-gratuitos/dica-tecnica-09g-trocas-bruscas.png",
+      "downloadUrl": "/downloads/dica-tecnica-09g-trocas-bruscas.pdf"
+    },
+    {
+      "id": 7,
+      "slug": "6r80-apostila-corpo-valvulas",
+      "title": "Transmissão 6R80 – Apostila do Corpo de Válvulas",
+      "description": "Apostila completa sobre o corpo de válvulas da transmissão 6R80.",
+      "downloadUrl": "#"
+    },
+    {
+      "id": 8,
+      "slug": "corpo-valvulas-jf015e",
+      "title": "Apostila do Corpo de Válvulas – Transmissão JF015E (RE0F11B)",
+      "description": "Material de estudo detalhado do corpo de válvulas JF015E (RE0F11B).",
+      "image": "/images/materiais-gratuitos/corpo-valvulas-jf015e.png",
+      "downloadUrl": "/downloads/corpo-valvulas-jf015e.pdf"
+    },
+    {
+      "id": 9,
+      "slug": "dica-09g-aq160-luz-anomalia",
+      "title": "DICA TÉCNICA – Transmissão 09G – AQ160/AQ250 – LUZ DE ANOMALIA ACESA",
+      "description": "Solução para luz de anomalia acesa no painel e código DTC P2757.",
+      "downloadUrl": "#"
+    },
+    {
+      "id": 10,
+      "slug": "boletim-7dct300",
+      "title": "Boletim Técnico – Transmissão 7DCT300 – BMW",
+      "description": "Informações técnicas e boletins para a transmissão 7DCT300 em veículos BMW.",
+      "image": "/images/materiais-gratuitos/boletim-7dct300.png",
+      "downloadUrl": "/downloads/boletim-7dct300.pdf"
+    },
+    {
+      "id": 11,
+      "slug": "cvt-jf015e-reaprendizado-forcado",
+      "title": "Dica Técnica – Transmissão CVT JF015E – REAPRENDIZADO FORÇADO",
+      "description": "Procedimento de reaprendizado forçado da transmissão CVT JF015E.",
+      "downloadUrl": "#"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Carlos Macedo",
+      "role": "Técnico em Mecânica",
+      "text": "Foi muito bom acessar os materiais da CAB, através deles solucionei muitos problemas e encontrei suporte para voltar a estudar dentro da plataforma."
+    },
+    {
+      "id": 2,
+      "name": "Renata Souza",
+      "role": "Técnica em Transmissões Automáticas",
+      "text": "O material gratuito me ajudou a resolver um caso difícil. Depois disso, realizei minha assinatura para continuar estudando e foi o melhor investimento que poderia ter feito!"
+    },
+    {
+      "id": 3,
+      "name": "Fernando Costa Jr.",
+      "role": "Reparador Automotivo",
+      "text": "Antes dos cursos da CAB, eu dependia muito de tentativa e erro. Hoje consigo interpretar falhas e entender melhor o funcionamento das transmissões. Recomendo!"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Oficinas | Rede CAB de reparadores de câmbio automático",
+    "description": "Rede de apoio e networking para reparadores: oficinas que usam o material da CAB, com suporte para dúvidas sobre transmissões."
+  },
+  "hero": {
+    "badge": "REDE DE OFICINAS",
+    "title": "A maior rede de especialistas em câmbio automático do Brasil",
+    "description": "Encontre uma oficina parceira CAB perto de você e tenha a garantia de um serviço de alta qualidade. Nossos assinantes têm acesso ao que há de mais moderno em informação técnica."
+  },
+  "stats": [
+    { "value": "+2000", "label": "Oficinas Parceiras" },
+    { "value": "+150", "label": "Cidades Atendidas" },
+    { "value": "+10", "label": "Anos de Experiência" },
+    { "value": "+50k", "label": "Carros Reparados" }
+  ],
+  "listSection": {
+    "title": "Oficinas encontradas",
+    "emptyMessage": "Nenhuma oficina encontrada com os filtros selecionados.",
+    "resultsLabel": "{count} resultado(s)"
+  },
+  "faq": {
+    "title": "Dúvidas Frequentes",
+    "items": [
+      {
+        "question": "Como faço para assinar um plano na CAB?",
+        "answer": "Basta acessar nossa página de planos e seguir o passo a passo. Após a confirmação do pagamento, você receberá no e-mail e WhatsApp todas as informações de acesso, seu material digital e o kit de boas-vindas."
+      },
+      {
+        "question": "Meu Auto Center aparece imediatamente na aba de Oficinas?",
+        "answer": "Não! É necessário utilizar do recurso 'HotSite' disponível na Área do Assinante para configurar todas as informações de sua Oficina. Assim, conseguiremos aprová-la e inseri-la em nosso espaço."
+      },
+      {
+        "question": "O que é o hotsite da minha oficina no site da CAB?",
+        "answer": "O hotsite é a vitrine da sua oficina no site da CAB: uma página compacta, dentro de um portal voltado a oficinas especializadas, para o cliente encontrar e conhecer seu trabalho."
+      },
+      {
+        "question": "Onde encontro o Hotsite para fazer o meu?",
+        "answer": "Dentro da ÁREA DO ASSINANTE na aba MEU PERFIL você encontrará o ícone Configurar meu Hotsite, podendo inserir todas as suas informações sobre sua Oficina."
+      },
+      {
+        "question": "Minha oficina será indicada no site da CAB após configurar o Hotsite?",
+        "answer": "Sim. Sua oficina será indicada no site da CAB com um selo de especialidades, de acordo com o pacote contratado."
+      }
+    ]
+  },
+  "becomeAssociate": {
+    "title": "Sua oficina ainda não é CAB?",
+    "description": "Junte-se à maior rede de especialistas em câmbio automático do Brasil. Tenha acesso a informações técnicas exclusivas, destaque sua oficina para milhares de clientes e faça parte de uma comunidade que está revolucionando o mercado.",
+    "buttonText": "Quero fazer parte da rede",
+    "link": "/planos"
+  },
+  "disclaimer": "As oficinas listadas são empresas independentes que utilizam a plataforma educacional da CAB. A Câmbio Automático do Brasil não possui vínculo operacional, societário ou responsabilidade sobre os serviços prestados por essas empresas.",
+  "backLink": {
+    "href": "/oficinas",
+    "label": "Voltar para lista de oficinas"
+  },
+  "brazilStates": [
+    "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
+    "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+  ]
+}

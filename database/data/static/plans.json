@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "title": "Planos CAB | Treinamento e suporte para oficinas de câmbio",
+    "description": "No sistema CAB o reparador tira as principais dúvidas sobre transmissões, com material técnico, rede de apoio e eventos de estudo do mercado."
+  },
+  "ecosystemPromoPrice": 57.9,
+  "ecosystemRegularPrice": 87.9,
+  "hero": {
+    "badge": "Nossos Planos",
+    "title": "Acelere o diagnóstico e a gestão da sua oficina",
+    "description": "Acesse cursos especializados, manuais de reparo, materiais de apoio e suporte técnico exclusivo para elevar o nível técnico da sua equipe e escalar o seu faturamento.",
+    "socialProof": "mais de 2000 oficinas"
+  },
+  "plans": [
+    {
+      "name": "Plataforma 1.4",
+      "description": "Preventiva, Diálise de fluido, Diagnóstico preliminar",
+      "basePriceWithFidelity": 169.9,
+      "basePriceWithoutFidelity": 339.9,
+      "features": [
+        "Treinamentos 01 ao 20",
+        "APP Guia de Transmissões Completo",
+        "Suporte Técnico via WhatsApp",
+        "10% de Desconto em Cursos"
+      ],
+      "ecosystemFeatures": [
+        "Sistema de Gestão de Caixa",
+        "Marketing Digital para Oficina"
+      ],
+      "popular": false,
+      "ctaText": "Detalhes do 1.4"
+    },
+    {
+      "name": "Plataforma 2.0",
+      "description": "Reforma e reparos profundos, Manuais e diagramas",
+      "basePriceWithFidelity": 277.9,
+      "basePriceWithoutFidelity": 557.9,
+      "features": [
+        "Treinamentos 01 ao 38",
+        "Diagramas Hidráulicos Avançados",
+        "Suporte para diagnóstico, desmontagem e montagem das transmissões",
+        "20% de Desconto em Cursos"
+      ],
+      "ecosystemFeatures": [
+        "Gestão Completa com ERP",
+        "Módulo de Diagnóstico Raio-X",
+        "Automação de Marketing"
+      ],
+      "popular": false,
+      "ctaText": "Conhecer o 2.0"
+    },
+    {
+      "name": "Plataforma 3.0",
+      "description": "Reforma e reparos profundos, Manuais e diagramas, Usinagem Sonnax",
+      "basePriceWithFidelity": 297.9,
+      "basePriceWithoutFidelity": 597.9,
+      "features": [
+        "Mais de 80 Cursos de Câmbios",
+        "Usinagem Avançada (Sonnax)",
+        "Suporte para diagnóstico, desmontagem e montagem das transmissões",
+        "50% de Desconto em Eventos"
+      ],
+      "ecosystemFeatures": [
+        "Gestão de Múltiplas Unidades",
+        "Auditoria de Processos CAB",
+        "Mestria em Vendas e Conversão"
+      ],
+      "popular": true,
+      "ctaText": "Explorar o 3.0"
+    }
+  ],
+  "testimonialsSection": {
+    "title": "Quem já faz parte do Ecossistema CAB",
+    "subtitle": "Veja o que donos de oficinas de todo o Brasil dizem sobre a nossa parceria.",
+    "items": [
+      {
+        "name": "Mundial Centro Automotivo",
+        "text": "Sou Assinante da CAB há mais ou menos 1 ano. Só tenho a agradecer aos Professores e Parceiros. Um dia quero chegar no nível de vocẽs! Obrigado por nos ajudar no dia a dia.",
+        "stars": 5,
+        "initials": "MA"
+      },
+      {
+        "name": "Jonass Car",
+        "text": "Estou trabalhando com a CAB há 2 anos, e me abriu a mente quando o assunto é câmbio automático. Pessoas honestas e um suporte técnico fantástico.",
+        "stars": 5,
+        "initials": "JC"
+      },
+      {
+        "name": "Jefferson Yung",
+        "text": "Sem dúvida vocês estão evoluindo a manutenção automotiva no Brasil.",
+        "stars": 5,
+        "initials": "JY"
+      },
+      {
+        "name": "Yama Oil",
+        "text": "Sou assinante há quase um ano e afirmo que foi um dos melhores investimentos que já fiz. Sem o apoio da CAB, poderia até seguir em frente, mas com certeza o caminho seria muito mais difícil. Super recomendo!",
+        "stars": 5,
+        "initials": "YO"
+      }
+    ]
+  },
+  "comparisonRows": [
+    { "label": "Artigos e Dicas Técnicas", "p1": true, "p2": true, "p3": true },
+    { "label": "Códigos DTC — Defeitos e Soluções", "p1": true, "p2": true, "p3": true },
+    { "label": "Mecânica Geral", "p1": true, "p2": true, "p3": true },
+    { "label": "Verificação de Pressão de Fluido", "p1": true, "p2": true, "p3": true },
+    { "label": "Manuais e Informativos Técnicos", "p1": false, "p2": true, "p3": true },
+    { "label": "Corpo de Válvulas + AirCheck + Checkball", "p1": false, "p2": true, "p3": true },
+    { "label": "Folga das Embreagens + Freewheel Book", "p1": false, "p2": true, "p3": true },
+    { "label": "Transmissões Automatizadas (CVT, DSG, Powershift, Dualogic, Easytronic, Sequencial)", "p1": false, "p2": true, "p3": true },
+    { "label": "Caixa de Transferência", "p1": false, "p2": true, "p3": true },
+    { "label": "Híbridos e Elétricos", "p1": false, "p2": false, "p3": true }
+  ],
+  "comparisonContent": {
+    "title": "Compare os Níveis de Assinatura",
+    "description": "Escolha o arsenal técnico ideal para o momento atual da sua oficina."
+  },
+  "benefitsRows": [
+    { "label": "App Guia de Transmissão CAB", "p1": true, "p2": true, "p3": true },
+    { "label": "Apoio técnico exclusivo (WhatsApp CRM)", "p1": true, "p2": true, "p3": true },
+    { "label": "Orientação jurídica CAB", "p1": true, "p2": true, "p3": true },
+    { "label": "Desconto nos cursos CAB", "p1": "10%", "p2": "20%", "p3": "25%" },
+    { "label": "Desconto nos eventos CAB", "p1": false, "p2": false, "p3": "50%" },
+    { "label": "Desconto em perícias e laudos técnicos", "p1": true, "p2": true, "p3": true },
+    { "label": "Kit CAB de boas-vindas (após 6 meses)", "p1": true, "p2": true, "p3": true },
+    { "label": "Selo + Certificado de Especialista", "p1": "Manutenção Preventiva", "p2": "Transmissão Automática", "p3": "Premium CAB" },
+    { "label": "Logomarca + Marketplace de Oficinas CAB", "p1": "Manutenção Preventiva", "p2": "Transmissão Automática", "p3": "Premium CAB" },
+    { "label": "Treinamentos online gratuitos incluídos", "p1": "20 treinamentos", "p2": "38 treinamentos", "p3": "+75 treinamentos" }
+  ],
+  "benefitsContent": {
+    "title": "Benefícios Exclusivos C.A.B.",
+    "description": "Vantagens que vão além do conteúdo técnico — para crescer com suporte, reconhecimento e comunidade."
+  },
+  "faqSection": {
+    "title": "Dúvidas Frequentes",
+    "items": [
+      {
+        "question": "Qual plano é ideal para a minha oficina?",
+        "answer": "A CAB oferece diferentes planos para atender desde profissionais que estão iniciando no segmento até oficinas que já atuam fortemente com transmissões automáticas. Compare os benefícios de cada opção e escolha o plano que melhor atende às necessidades do seu negócio. Se tiver dúvidas, nossos Consultores estão sempre prontos para ajudar."
+      },
+      {
+        "question": "O que está incluso na assinatura?",
+        "answer": "Ao assinar um plano da CAB, você passa a ter acesso a uma série de benefícios exclusivos, como cursos especializados, manuais de reparo, materiais de apoio, APP Guia de Transmissão, suporte técnico especializado e condições especiais em eventos promovidos pela CAB. Compare os benefícios de cada opção de Plano."
+      },
+      {
+        "question": "Como funciona o suporte técnico da CAB?",
+        "answer": "O suporte técnico é realizado por especialistas com ampla experiência no mercado de transmissões automáticas e automatizadas. Os Assinantes podem esclarecer dúvidas técnicas, receber orientações sobre diagnósticos e contar com apoio para enfrentar desafios do dia a dia da oficina. Incluso em todos os planos."
+      },
+      {
+        "question": "Assinantes têm descontos nos eventos da CAB?",
+        "answer": "Sim. Assinantes possuem condições especiais e descontos exclusivos em eventos promovidos pela CAB, como Imersão, Congresso CAB e outras iniciativas de capacitação realizadas ao longo do ano."
+      },
+      {
+        "question": "Posso trocar de plano futuramente?",
+        "answer": "Claro! Caso as necessidades da sua oficina mudem, é possível solicitar a alteração para outro plano disponível, adequando os benefícios ao momento atual do seu negócio."
+      },
+      {
+        "question": "Como faço para assinar um plano?",
+        "answer": "É simples! Basta escolher o plano ideal para sua oficina e realizar a contratação diretamente pelo site. Após a confirmação, você receberá as orientações de acesso e poderá começar a aproveitar os benefícios da CAB. Caso precise de ajuda, nossos Consultores estão disponíveis para auxiliar durante todo o processo."
+      },
+      {
+        "question": "O que é o Cartudo?",
+        "answer": "O Cartudo é uma solução complementar disponível para assinantes que desejam ampliar seu acesso a ferramentas de Raio-X e gestão voltadas para o desenvolvimento da oficina."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Pronto para o próximo nível?",
+    "description": "Nosso time de especialistas ajuda você a definir o melhor escopo para a sua oficina, sem nenhum compromisso.",
+    "buttonText": "Assinar agora"
+  }
+}
