@@ -34,4 +34,16 @@ return [
         'message' => env('CAB_API_SUPPORT_CONTACT_FIELD_MESSAGE', 'mensagem'),
     ],
 
+    // Parceria CAB + Raven (/cabraven).
+    'cabraven' => [
+        // WhatsApp (DDI + DDD + número, só dígitos) que recebe o cadastro de quem já é cliente CAB.
+        'whatsapp' => env('CAB_RAVEN_WHATSAPP', '5519971659055'),
+
+        // Consulta de CNPJ (dados da Receita Federal), em ordem de tentativa. Placeholder {cnpj} = só dígitos.
+        'cnpj_lookup_urls' => array_values(array_filter([
+            env('CAB_RAVEN_CNPJ_LOOKUP_URL', 'https://brasilapi.com.br/api/cnpj/v1/{cnpj}'),
+            env('CAB_RAVEN_CNPJ_LOOKUP_FALLBACK_URL', 'https://receitaws.com.br/v1/cnpj/{cnpj}'),
+        ])),
+    ],
+
 ];

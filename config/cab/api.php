@@ -45,6 +45,14 @@ return [
         'newsletter' => env('CAB_API_NEWSLETTER', ''),
         'home_cta' => env('CAB_API_HOME_CTA', ''),
         'support_contact' => env('CAB_API_SUPPORT_CONTACT', ''),
+
+        // Parceria CAB + Raven (/cabraven). Um POST só: o CRM responde se é
+        // assinante ativo ou cria o lead. Vazio = todos vão para o WhatsApp.
+        'cabraven' => env('CAB_API_CABRAVEN', ''),
     ],
+
+    // Token das chamadas autenticadas ao CRM (Authorization: Bearer).
+    // Mesma variável e mesmo valor no .env do CRM.
+    'site_token' => (string) env('CAB_API_SITE_TOKEN', ''),
 
 ];

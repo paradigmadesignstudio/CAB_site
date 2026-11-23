@@ -14,6 +14,7 @@ use App\Http\Controllers\PlansController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\HealthController;
+use App\Http\Controllers\CabRavenController;
 
 
 Route::get('/health', [HealthController::class, 'show'])->name('health');
@@ -75,6 +76,16 @@ Route::get('/suporte', [SupportController::class, 'index'])->name('support');
 Route::post('/suporte/contato', [SupportController::class, 'storeContact'])
     ->middleware('throttle:5,1')
     ->name('support.contact');
+
+// Landing da parceria CAB + Raven — acesso só por link direto (fora do menu).
+Route::get('/cabraven', [CabRavenController::class, 'index'])->name('cabraven');
+Route::post('/cabraven', [CabRavenController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('cabraven.store');
+Route::get('/cabraven/cnpj/{cnpj}', [CabRavenController::class, 'cnpj'])
+    ->where('cnpj', '[0-9]{14}')
+    ->middleware('throttle:20,1')
+    ->name('cabraven.cnpj');
 
 Route::get('/politica-de-privacidade', [LegalController::class, 'privacy'])->name('legal.privacy');
 Route::get('/termos-de-servico', [LegalController::class, 'terms'])->name('legal.terms');
