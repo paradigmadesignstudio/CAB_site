@@ -16,11 +16,11 @@
 - `public/` completo (`build/`, `images/`, `index.php`)
 - `storage/` (estrutura vazia)
 - `artisan`, `composer.json`, `composer.lock`, `.env.example`
-- **`.env`** (configuração do ambiente — sobrescreve o `.env` do servidor ao extrair)
 - Este arquivo (`DEPLOY.md`)
 
 ### Excluído (propositalmente)
 - `node_modules`, `resources/js`, `resources/css`
+- **`.env`** — o pacote **não** traz `.env`; o do servidor é mantido
 - `tests/`, `.git`, `.env.*` (backups e variantes locais)
 - `database.sqlite`, factories, seeders
 - `public/hot`, configs de dev (Vite, TypeScript, etc.)
@@ -39,7 +39,7 @@
 
 1. Faça backup do site atual e do `.env` de produção.
 2. Envie e extraia o zip na pasta pública do projeto.
-3. O pacote inclui **`.env`** na raiz — ele **substituirá** o `.env` existente no servidor. Confira `APP_ENV`, `APP_DEBUG`, `APP_URL`, `CAB_API_BASE_URL` e credenciais de banco antes de extrair.
+3. O pacote **não** inclui `.env`: o `.env` do servidor continua valendo. Acrescente nele as variáveis novas da seção 4 (compare com `.env.example`).
 
 ---
 
@@ -65,6 +65,10 @@ BLOG_COLUMNISTS_ENABLED=false
 
 QUEUE_CONNECTION=database      # ou redis
 SESSION_DRIVER=database
+
+# Parceria CAB + Raven (/cabraven) — vazio ou sem token = todo cadastro vai para o WhatsApp
+CAB_API_CABRAVEN=https://crm.cambioautomaticodobrasil.com.br/api/v1/site/cabraven
+CAB_API_SITE_TOKEN=            # mesmo valor do .env do CRM
 ```
 
 > **`APP_URL` é crítico para SEO:** canonical, `og:url`, `robots.txt` (`Sitemap:`) e todas as `<loc>` do `sitemap.xml` usam esse valor. Nunca deixe `http://localhost` em produção.
@@ -119,6 +123,8 @@ Configure Supervisor/systemd para manter o worker ativo.
 | `/robots.txt`, `/sitemap.xml`, `/health` | 200 |
 | URL inexistente | 404 customizado |
 | `/sou-cab` | 301 → `/oficinas` |
+| `/cabraven` | 200 — landing CAB + Raven (fora do menu) |
+| `/cabraven/cnpj/33000167000101` | 200 — JSON com razão social |
 
 ### Funcional
 - [ ] Busca em `/oficinas` e `/parceiros` responde sem travar
@@ -131,6 +137,8 @@ Configure Supervisor/systemd para manter o worker ativo.
 ---
 
 ## 7. Novidades desta versão
+
+- Landing `/cabraven` (parceria CAB + Raven), sem link no menu: escolha CPF/CNPJ, máscaras, CNPJ preenche a razão social via Receita Federal (BrasilAPI/ReceitaWS), um POST ao CRM decide: assinante ativo → WhatsApp 19 97165-9055, não assinante → lead criado no CRM
 
 - Páginas legais (privacidade, termos, cookies)
 - Página 404 customizada
