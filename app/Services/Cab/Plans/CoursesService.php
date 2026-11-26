@@ -11,6 +11,14 @@ class CoursesService
         private CoursesDataMapper $mapper,
     ) {}
 
+    public function warmWithMaterials(): void
+    {
+        $this->client->warm([
+            (string) config('cab.endpoints.courses'),
+            (string) config('cab.endpoints.platform_materials'),
+        ]);
+    }
+
     public function isEnabled(): bool
     {
         return (bool) config('cab.enabled');
@@ -47,18 +55,17 @@ class CoursesService
      */
     public function getTrainingsTableMeta(): ?array
     {
-        $table = $this->getTrainingsTableData();
-
-        if ($table === null) {
+        if (! $this->isEnabled()) {
             return null;
         }
 
-        return [
-            'title' => $table['title'],
-            'description' => $table['description'],
-            'planSummary' => $table['planSummary'],
-            'totalCount' => $this->countTrainingRows($table),
-        ];
+        $courses = $this->client->get((string) config('cab.endpoints.courses'));
+
+        if ($courses === []) {
+            return null;
+        }
+
+        return $this->mapper->mapTrainingsMeta($courses);
     }
 
     /**

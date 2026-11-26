@@ -25,13 +25,9 @@ function MapLoadingFallback() {
 
 export function CollapsibleMap({ workshops }: CollapsibleMapProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasBeenOpened, setHasBeenOpened] = useState(false);
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
-    if (open && !hasBeenOpened) {
-      setHasBeenOpened(true);
-    }
   };
 
   const locatedCount = workshops.filter((w) => w.coordinates).length;
@@ -71,7 +67,7 @@ export function CollapsibleMap({ workshops }: CollapsibleMapProps) {
       </div>
 
       <CollapsibleContent className="transition-all data-[state=closed]:animate-slideUp data-[state=open]:animate-slideDown">
-        {hasBeenOpened ? (
+        {isOpen ? (
           <div className="h-[450px] w-full">
             <Suspense fallback={<MapLoadingFallback />}>
               <WorkshopMap workshops={workshops} />

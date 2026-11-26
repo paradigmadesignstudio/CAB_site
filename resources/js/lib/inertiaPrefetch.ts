@@ -13,6 +13,14 @@ export function isPrefetchableHref(href: string): boolean {
   );
 }
 
+const HEAVY_PREFIXES = ["/oficinas", "/blog", "/planos", "/academia-cab"];
+
+function isHeavyPath(path: string): boolean {
+  return HEAVY_PREFIXES.some(
+    (prefix) => path === prefix || path.startsWith(`${prefix}/`),
+  );
+}
+
 export function inertiaPrefetchPath(href: string): void {
   if (!isPrefetchableHref(href)) {
     return;
@@ -20,7 +28,7 @@ export function inertiaPrefetchPath(href: string): void {
 
   const path = href.includes("#") ? href.split("#")[0] : href;
 
-  if (!path || path === window.location.pathname) {
+  if (!path || path === window.location.pathname || isHeavyPath(path)) {
     return;
   }
 

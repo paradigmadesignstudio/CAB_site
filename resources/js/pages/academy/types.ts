@@ -138,5 +138,6 @@ export interface AcademyPageProps {
   courses?: Course[];
   testimonials?: Testimonial[];
   platformMaterialsSectionData?: AcademyPlatformMaterialsSectionData | null;
+  platformMaterialCategories?: AcademyPlatformMaterialsSectionData["categories"];
   trainingsSectionData?: AcademyTrainingsSectionData | null;
 }

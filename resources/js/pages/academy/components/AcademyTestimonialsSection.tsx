@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import type { Testimonial } from "@/pages/academy/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/pages/ui/avatar";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ function testimonialInitials(name: string): string {
 }
 
 export function AcademyTestimonialsSection({ testimonials }: TestimonialsSectionProps) {
+  const light = useLightMotion();
   if (testimonials.length === 0) {
     return null;
   }
@@ -29,10 +31,10 @@ export function AcademyTestimonialsSection({ testimonials }: TestimonialsSection
     <section className="bg-[#003B7A] py-16 text-white sm:py-20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={light ? false : { opacity: 0, y: 20 }}
+          whileInView={light ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: light ? 0 : 0.5 }}
           className="mb-10 text-center sm:mb-12"
         >
           <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.28em] text-[#AFFF00]/80">
@@ -45,10 +47,10 @@ export function AcademyTestimonialsSection({ testimonials }: TestimonialsSection
           {testimonials.map((testimonial, index) => (
             <motion.article
               key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={light ? false : { opacity: 0, y: 20 }}
+              whileInView={light ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
+              transition={{ duration: light ? 0 : 0.4, delay: light ? 0 : index * 0.08 }}
               className={cn(
                 "flex h-full flex-col rounded-2xl border border-white/12 bg-white/8 p-6 shadow-[0_16px_48px_-24px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-7",
                 centerLastOdd,

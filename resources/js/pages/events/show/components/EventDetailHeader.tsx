@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import { Calendar, MapPin } from "lucide-react";
 import { AgendaStatusBadge } from "@/pages/components/agenda/AgendaStatusBadge";
 import {
@@ -12,11 +13,12 @@ interface EventDetailHeaderProps {
 }
 
 export function EventDetailHeader({ event }: EventDetailHeaderProps) {
+  const light = useLightMotion();
   return (
     <motion.header
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.06, ease: [0.25, 0.4, 0.25, 1] }}
+      initial={light ? false : { opacity: 0, y: 20 }}
+      animate={light ? undefined : { opacity: 1, y: 0 }}
+      transition={light ? { duration: 0 } : { duration: 0.5, delay: 0.06, ease: [0.25, 0.4, 0.25, 1] }}
     >
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <AgendaStatusBadge status={event.status} tone="dark" />

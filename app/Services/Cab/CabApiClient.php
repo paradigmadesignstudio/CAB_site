@@ -24,6 +24,62 @@ class CabApiClient
     }
 
     /**
+     * Busca endpoints independentes em paralelo e aquece o cache da lista.
+     * Uma lista vazia não é gravada.
+     *
+     * @param  array<int, string>  $endpoints
+     */
+    public function warm(array $endpoints): void
+    {
+        if (! config('cab.enabled') || $endpoints === []) {
+            return;
+        }
+
+        $ttl = (int) config('cab.cache_ttl', 600);
+        $pending = [];
+
+        foreach ($endpoints as $endpoint) {
+            $url = $this->buildUrl($endpoint);
+            $cacheKey = 'cab.api:'.hash('sha256', $url);
+
+            if ($ttl > 0 && Cache::has($cacheKey)) {
+                continue;
+            }
+
+            $pending[$url] = $cacheKey;
+        }
+
+        if ($pending === []) {
+            return;
+        }
+
+        $responses = Http::pool(function ($pool) use ($pending) {
+            foreach (array_keys($pending) as $url) {
+                $pool->as($url)
+                    ->timeout(config('cab.timeout'))
+                    ->acceptJson()
+                    ->get($url);
+            }
+        });
+
+        foreach ($pending as $url => $cacheKey) {
+            $response = $responses[$url] ?? null;
+
+            if (! $response instanceof \Illuminate\Http\Client\Response || ! $response->successful()) {
+                continue;
+            }
+
+            $list = $this->normalizeListResponse($response->json());
+
+            if ($list === [] || $ttl <= 0) {
+                continue;
+            }
+
+            Cache::put($cacheKey, $list, $ttl);
+        }
+    }
+
+    /**
      * @return array<int, mixed>
      */
     public function getAbsolute(string $url): array
@@ -150,7 +206,7 @@ class CabApiClient
 
         $result = $this->fetchGet($url);
 
-        if ($result === null) {
+        if ($result === null || $result === []) {
             return [];
         }
 

@@ -25,11 +25,22 @@ class AcademyController extends Controller
 
     public function index(): Response
     {
+        $this->coursesService->warmWithMaterials();
+
+        $materials = $this->platformMaterialsService->getSectionPayload();
+
+        if (is_array($materials)) {
+            $materials['categories'] = [];
+        }
+
         return Inertia::render('academy/page', [
             ...$this->academyService->getPageData(),
             'pageContent' => $this->pageContentService->academyPage(),
             'trainingsSectionData' => $this->coursesService->getTrainingsSectionPayload(),
-            'platformMaterialsSectionData' => $this->platformMaterialsService->getSectionPayload(),
+            'platformMaterialsSectionData' => $materials,
+            'platformMaterialCategories' => Inertia::defer(
+                fn (): array => $this->platformMaterialsService->getSectionPayload()['categories'] ?? [],
+            ),
         ]);
     }
 

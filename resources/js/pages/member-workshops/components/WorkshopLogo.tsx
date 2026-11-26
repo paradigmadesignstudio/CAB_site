@@ -45,6 +45,8 @@ export function WorkshopLogo({
     <img
       src={logo}
       alt={name}
+      width={variant === "hero" ? 280 : 160}
+      height={variant === "hero" ? 112 : 64}
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchPriority={priority ? "high" : undefined}

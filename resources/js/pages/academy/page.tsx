@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react";
+import { Deferred, usePage } from "@inertiajs/react";
 import Layout from "@/pages/layout";
 import { DefaultHead } from "@/pages/components/layout/DefaultHead";
 import { PremiumPageFrame, PremiumZebraBand } from "@/pages/components/premium";
@@ -20,6 +20,7 @@ export default function AcademyPage({
   materials = [],
   testimonials = [],
   platformMaterialsSectionData,
+  platformMaterialCategories,
   trainingsSectionData,
 }: AcademyPageProps) {
   const { url } = usePage();
@@ -46,12 +47,24 @@ export default function AcademyPage({
 
         <PremiumZebraBand tone="canvas" className="py-0">
           {platformMaterialsSectionData && platformMaterialsSectionData.featured.length > 0 && (
-            <AcademyPlatformMaterialsSection
-              content={pageContent.platformMaterialsSection}
-              meta={platformMaterialsSectionData.meta}
-              featured={platformMaterialsSectionData.featured}
-              categories={platformMaterialsSectionData.categories}
-            />
+            <Deferred
+              data="platformMaterialCategories"
+              fallback={
+                <AcademyPlatformMaterialsSection
+                  content={pageContent.platformMaterialsSection}
+                  meta={platformMaterialsSectionData.meta}
+                  featured={platformMaterialsSectionData.featured}
+                  categories={[]}
+                />
+              }
+            >
+              <AcademyPlatformMaterialsSection
+                content={pageContent.platformMaterialsSection}
+                meta={platformMaterialsSectionData.meta}
+                featured={platformMaterialsSectionData.featured}
+                categories={platformMaterialCategories ?? []}
+              />
+            </Deferred>
           )}
         </PremiumZebraBand>
 

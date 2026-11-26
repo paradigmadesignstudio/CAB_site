@@ -1,6 +1,7 @@
 import { useMemo, useState, Fragment, useCallback } from "react";
 import { Check, X, ChevronDown, ChevronUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import { PlanCtaButton } from "@/pages/plans/components/PlanCtaButton";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/pages/ui/table";
 import { BlogCardImage } from "@/pages/blog/components/BlogCardImage";
@@ -109,6 +110,7 @@ function TrainingLabelCell({
 }
 
 function PlanSummaryCards({ items }: { items: PlanSummary[] }) {
+  const light = useLightMotion();
   const maxCount = Math.max(...items.map((item) => item.count), 1);
 
   return (
@@ -119,10 +121,10 @@ function PlanSummaryCards({ items }: { items: PlanSummary[] }) {
         return (
           <motion.article
             key={plan.plan}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={light ? false : { opacity: 0, y: 18 }}
+            whileInView={light ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.08, duration: 0.45 }}
+            transition={{ delay: light ? 0 : index * 0.08, duration: light ? 0 : 0.45 }}
             className={cn(
               "group relative flex min-h-[220px] flex-col rounded-[1.35rem] border bg-white/98 p-5 backdrop-blur-sm transition-all duration-300 md:min-h-[240px] md:p-7",
               plan.highlight
@@ -179,8 +181,9 @@ function PlanSummaryCards({ items }: { items: PlanSummary[] }) {
             <div className="mt-auto pt-6">
               <div className="h-1 overflow-hidden rounded-full bg-[#003B7A]/8">
                 <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${coverage}%` }}
+                  initial={light ? false : { width: 0 }}
+                  whileInView={light ? undefined : { width: `${coverage}%` }}
+                  style={light ? { width: `${coverage}%` } : undefined}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.08, duration: 0.7, ease: "easeOut" }}
                   className={cn(

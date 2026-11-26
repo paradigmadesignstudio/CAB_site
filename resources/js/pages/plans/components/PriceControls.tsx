@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "@inertiajs/react";
 import { cartudoBrand } from "@/lib/cartudoBrand";
+import { useLightMotion } from "@/hooks/useLightMotion";
 
 interface PriceControlsProps {
   withFidelity: boolean;
@@ -16,6 +17,7 @@ export function PriceControls({
   setWithFidelity,
   ecosystemPromoPrice,
 }: PriceControlsProps) {
+  const light = useLightMotion();
   const formattedEcosystemPromo = ecosystemPromoPrice.toLocaleString("pt-BR", {
     minimumFractionDigits: 2,
   });
@@ -27,10 +29,10 @@ export function PriceControls({
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-stretch gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={light ? false : { opacity: 0, y: 12 }}
+            whileInView={light ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: light ? 0 : 0.4 }}
             className="w-full shrink-0 lg:max-w-[280px]"
           >
             <Link
@@ -44,11 +46,13 @@ export function PriceControls({
                   background: `linear-gradient(135deg, ${colors.blueLight} 0%, ${colors.blue} 48%, ${colors.blueDark} 100%)`,
                 }}
               />
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                animate={{ x: ["-120%", "120%"] }}
-                transition={{ duration: 2.8, repeat: Number.POSITIVE_INFINITY, ease: "linear", repeatDelay: 1.2 }}
-              />
+              {!light && (
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                  animate={{ x: ["-120%", "120%"] }}
+                  transition={{ duration: 2.8, repeat: Number.POSITIVE_INFINITY, ease: "linear", repeatDelay: 1.2 }}
+                />
+              )}
 
               <div className="relative rounded-[14px] bg-white px-4 py-3.5">
                 <div className="mb-2 flex items-center justify-between gap-3">

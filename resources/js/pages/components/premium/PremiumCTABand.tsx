@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/react";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import { Button } from "@/pages/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,14 +28,15 @@ export function PremiumCTABand({
   externalLink = false,
   centered = true,
 }: PremiumCTABandProps) {
+  const light = useLightMotion();
   const buttonClassName =
     "relative z-10 mt-8 h-12 rounded-xl bg-[#009739] px-8 font-bold text-white shadow-[0_8px_24px_-8px_rgba(0,151,57,0.6)] hover:bg-[#00b344]";
 
   return (
     <div className={cn("mx-auto max-w-4xl px-4 sm:px-6", centered && "text-center", className)}>
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={light ? false : { opacity: 0, y: 16 }}
+        whileInView={light ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className={cn(
           "relative overflow-hidden rounded-[2rem] border-2 border-[#003B7A]/12 bg-gradient-to-br from-[#003B7A] via-[#002952] to-[#081A33] p-8 shadow-[0_24px_60px_-20px_rgba(0,59,122,0.45)] sm:p-12",

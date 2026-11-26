@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import { PremiumSectionHeader } from "@/pages/components/premium";
 import { ArticlesSlider } from "@/pages/blog/components/ArticlesSlider";
 import type { Columnist } from "@/pages/blog/types";
@@ -9,13 +10,14 @@ interface ColumnistSectionProps {
 }
 
 export function ColumnistSection({ columnist, index }: ColumnistSectionProps) {
+  const light = useLightMotion();
   return (
     <div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={light ? false : { opacity: 0, y: 20 }}
+        whileInView={light ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: light ? 0 : 0.5 }}
         className="flex flex-col items-start gap-8 rounded-[1.35rem] border-2 border-[#003B7A]/12 bg-white p-6 shadow-[0_12px_40px_-16px_rgba(0,59,122,0.2)] md:flex-row md:p-10"
       >
         <div className="shrink-0">
@@ -37,10 +39,10 @@ export function ColumnistSection({ columnist, index }: ColumnistSectionProps) {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={light ? false : { opacity: 0, y: 20 }}
+        whileInView={light ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5, delay: 0.1 }}
+        transition={{ duration: light ? 0 : 0.5, delay: light ? 0 : 0.1 }}
         className="mt-10"
       >
         <PremiumSectionHeader

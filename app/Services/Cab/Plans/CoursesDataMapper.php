@@ -10,6 +10,49 @@ class CoursesDataMapper
      * @param  array<int, array<string, mixed>>  $courses
      * @return array<string, mixed>
      */
+    /**
+     * Contagem e resumo dos planos, sem montar as linhas da tabela.
+     *
+     * @param  array<int, array<string, mixed>>  $courses
+     * @return array<string, mixed>
+     */
+    public function mapTrainingsMeta(array $courses): array
+    {
+        $platform14Limit = (int) config('cab.plans_course_thresholds.platform_14', 20);
+        $platform20Limit = (int) config('cab.plans_course_thresholds.platform_20', 38);
+        $total = count($courses);
+        $platform14Count = min($total, $platform14Limit);
+        $platform20Count = min($total, $platform20Limit);
+
+        return [
+            'title' => "+{$total} Treinamentos Online Incluídos",
+            'description' => 'Assista com toda a sua equipe, quando e onde quiser. Aprenda na prática o passo a passo completo de montagem e desmontagem de todas as transmissões automáticas e automatizadas.',
+            'planSummary' => [
+                [
+                    'plan' => 'Plataforma 1.4',
+                    'range' => "1 – {$platform14Count}",
+                    'count' => $platform14Count,
+                    'highlight' => false,
+                ],
+                [
+                    'plan' => 'Plataforma 2.0',
+                    'range' => "1 – {$platform20Count}",
+                    'count' => $platform20Count,
+                    'highlight' => false,
+                ],
+                [
+                    'plan' => 'Plataforma 3.0',
+                    'range' => $total > $platform20Limit
+                        ? "1 – {$total} e mais"
+                        : "1 – {$total}",
+                    'count' => $total,
+                    'highlight' => true,
+                ],
+            ],
+            'totalCount' => $total,
+        ];
+    }
+
     public function mapTrainingsTable(array $courses): array
     {
         $platform14Limit = (int) config('cab.plans_course_thresholds.platform_14', 20);

@@ -1,5 +1,6 @@
 import { Calendar, Clock, User } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLightMotion } from "@/hooks/useLightMotion";
 import { BlogCardImage } from "@/pages/blog/components/BlogCardImage";
 import type { BlogPost } from "@/pages/blog/types";
 
@@ -9,11 +10,12 @@ interface HeroPostProps {
 }
 
 export function HeroPost({ post, showExcerpt = false }: HeroPostProps) {
+  const light = useLightMotion();
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55 }}
+      initial={light ? false : { opacity: 0, y: 24 }}
+      animate={light ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: light ? 0 : 0.55 }}
       className="group"
     >
       <div className="relative overflow-hidden rounded-[1.35rem] border-2 border-[#003B7A]/15 bg-white shadow-[0_24px_60px_-20px_rgba(0,59,122,0.35)] lg:grid lg:min-h-[min(60vh,520px)] lg:grid-cols-12">

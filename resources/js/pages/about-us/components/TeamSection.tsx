@@ -25,13 +25,10 @@ function TeamGrid({
       </div>
 
       <div className="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-5 md:mb-20">
-        {members.map((member, i) => (
+        {members.map((member) => (
           <motion.article
             key={member.name}
-            initial={useStaticMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={useStaticMotion ? undefined : { opacity: 1, y: 0 }}
-            viewport={useStaticMotion ? undefined : { once: true }}
-            transition={useStaticMotion ? undefined : { delay: i * 0.08 }}
+            initial={false}
             className="group flex flex-col items-center overflow-hidden rounded-[1.35rem] border-2 border-[#003B7A]/12 bg-white p-6 text-center shadow-[0_12px_40px_-16px_rgba(0,59,122,0.15)] transition-all duration-300 hover:border-[#009739]/35 hover:shadow-[0_20px_50px_-18px_rgba(0,59,122,0.25)]"
           >
             <div className="relative mb-5">

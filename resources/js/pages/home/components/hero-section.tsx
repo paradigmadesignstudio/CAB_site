@@ -72,9 +72,8 @@ export function HeroSection() {
       <div className="relative z-0 max-md:min-h-[58dvh] max-md:flex-1 shrink-0 overflow-hidden bg-white md:absolute md:inset-0 md:h-full md:flex-none">
         {eventImages.map((image, index) => {
           const isCurrent = index === currentImageIndex;
-          const isNext = index === nextImageIndex;
 
-          if (!isCurrent && !(allowNextSlide && isNext)) {
+          if (!isCurrent) {
             return null;
           }
 

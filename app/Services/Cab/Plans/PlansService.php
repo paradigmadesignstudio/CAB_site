@@ -11,6 +11,14 @@ class PlansService
         private PlansDataMapper $mapper,
     ) {}
 
+    public function warmWithCourses(): void
+    {
+        $this->client->warm([
+            (string) config('cab.endpoints.plans'),
+            (string) config('cab.endpoints.courses'),
+        ]);
+    }
+
     public function isConfigured(): bool
     {
         return (bool) config('cab.enabled')

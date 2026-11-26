@@ -18,6 +18,7 @@ class PlansController extends Controller
 
     public function index(): Response
     {
+        $this->plansService->warmWithCourses();
         $plans = $this->plansService->list();
         $plansProp = $plans !== [] ? $plans : null;
 
