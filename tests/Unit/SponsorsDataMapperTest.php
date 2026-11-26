@@ -128,6 +128,87 @@ class SponsorsDataMapperTest extends TestCase
     }
 
     #[Test]
+    public function it_maps_address_contact_and_coordinates_when_present(): void
+    {
+        $mapper = new SponsorsDataMapper();
+
+        $result = $mapper->mapList([
+            [
+                'id' => 4,
+                'nome' => 'ALL DRIVE',
+                'logo' => '',
+                'url' => 'https://alldrivetransmission.com.br/',
+                'endereco_completo' => 'Rua Exemplo, 10',
+                'cidade' => 'Campinas',
+                'estado' => 'SP',
+                'telefone' => '(19) 3333-0000',
+                'whatsapp' => '5519999990000',
+                'latitude' => -22.9,
+                'longitude' => -47.06,
+                'diferenciais' => ['Peças', ['nome' => 'Suporte']],
+            ],
+        ]);
+
+        $this->assertSame('Rua Exemplo, 10', $result[0]['address']);
+        $this->assertSame('Campinas', $result[0]['city']);
+        $this->assertSame('SP', $result[0]['state']);
+        $this->assertSame('(19) 3333-0000', $result[0]['phone']);
+        $this->assertSame('5519999990000', $result[0]['whatsapp']);
+        $this->assertSame(['Peças', 'Suporte'], $result[0]['highlights']);
+        $this->assertSame('', $result[0]['email']);
+        $this->assertSame(-22.9, $result[0]['coordinates']['lat']);
+        $this->assertSame(-47.06, $result[0]['coordinates']['lng']);
+    }
+
+    #[Test]
+    public function it_maps_the_site_sponsors_payload(): void
+    {
+        config([
+            'cab.sponsors_media_base_url' => 'https://crm.cambioautomaticodobrasil.com.br',
+        ]);
+
+        $mapper = new SponsorsDataMapper();
+
+        $result = $mapper->mapList([
+            [
+                'id' => 4,
+                'nome' => 'ALL DRIVE',
+                'email' => null,
+                'site' => 'https://alldrivetransmission.com.br/',
+                'logo_url' => 'https://crm.cambioautomaticodobrasil.com.br/storage/patrocinadores/logo/alldrive-4.jpg',
+                'descricao_curta' => 'Resumo da marca.',
+                'descricao_longa' => '<p>História da marca.</p>',
+                'video_url' => 'https://www.youtube.com/watch?v=IHbINjAeAAs',
+                'endereco' => [
+                    'logradouro' => 'Rua A',
+                    'numero' => '10',
+                    'cidade' => 'Campinas',
+                    'uf' => 'SP',
+                    'latitude' => -22.9,
+                    'longitude' => -47.06,
+                ],
+                'redes_sociais' => [
+                    'instagram' => 'https://instagram.com/alldrive',
+                    'facebook' => null,
+                ],
+                'galeria' => [],
+            ],
+        ]);
+
+        $this->assertSame('all-drive', $result[0]['slug']);
+        $this->assertSame('https://alldrivetransmission.com.br/', $result[0]['website']);
+        $this->assertStringStartsWith('/media/', $result[0]['logo']);
+        $this->assertSame('Resumo da marca.', $result[0]['shortDescription']);
+        $this->assertSame('<p>História da marca.</p>', $result[0]['story']);
+        $this->assertSame('Rua A, 10', $result[0]['address']);
+        $this->assertSame('Campinas', $result[0]['city']);
+        $this->assertSame('SP', $result[0]['state']);
+        $this->assertSame(-22.9, $result[0]['coordinates']['lat']);
+        $this->assertSame([['label' => 'Instagram', 'url' => 'https://instagram.com/alldrive']], $result[0]['socials']);
+        $this->assertSame([], $result[0]['gallery']);
+    }
+
+    #[Test]
     public function it_strips_unsafe_website_urls(): void
     {
         $mapper = new SponsorsDataMapper();

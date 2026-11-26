@@ -7,6 +7,9 @@ import { SponsorHero } from "./components/SponsorHero";
 import { AboutPartner } from "./components/AboutPartner";
 import { PartnerVideoSection } from "./components/PartnerVideoSection";
 import { HighlightsPartner } from "./components/HighlightsPartner";
+import { PartnerContact } from "./components/PartnerContact";
+import { PartnerGallery } from "./components/PartnerGallery";
+import { PartnerSocials } from "./components/PartnerSocials";
 import { PartnerLocation } from "./components/PartnerLocation";
 import { PartnerCTA } from "./components/PartnerCTA";
 import { getPartnerStory, isFeaturedSponsor } from "@/pages/partners/services";
@@ -16,9 +19,12 @@ export default function PartnerHomePage({ partner: partnerProp }: PartnerDetailP
   const partner = partnerProp ?? null;
   const story = partner ? getPartnerStory(partner) : "";
   const highlights = partner?.highlights ?? [];
-  const hasLocation = Boolean(
-    partner?.address && partner?.city && partner?.state,
-  );
+  const hasCoords = Boolean(partner?.coordinates?.lat && partner?.coordinates?.lng);
+  const hasAddress = Boolean(partner?.address || partner?.city || partner?.state);
+  const hasLocation = hasCoords || hasAddress;
+  const hasContact = Boolean(partner?.phone || partner?.whatsapp || partner?.email);
+  const socials = partner?.socials ?? [];
+  const gallery = partner?.gallery ?? [];
   const isSponsor = partner ? isFeaturedSponsor(partner) : false;
   const entityLabel = isSponsor ? "Patrocinador" : "Parceiro";
 
@@ -63,11 +69,19 @@ export default function PartnerHomePage({ partner: partnerProp }: PartnerDetailP
 
           {highlights.length > 0 && <HighlightsPartner highlights={highlights} />}
 
-          {hasLocation && partner.address && partner.city && partner.state && (
+          {hasContact && (
+            <PartnerContact phone={partner.phone} whatsapp={partner.whatsapp} email={partner.email} />
+          )}
+
+          {socials.length > 0 && <PartnerSocials socials={socials} />}
+
+          {gallery.length > 0 && <PartnerGallery images={gallery} />}
+
+          {hasLocation && (
             <PartnerLocation
-              address={partner.address}
-              city={partner.city}
-              state={partner.state}
+              address={partner.address ?? ""}
+              city={partner.city ?? ""}
+              state={partner.state ?? ""}
               coordinates={partner.coordinates}
             />
           )}

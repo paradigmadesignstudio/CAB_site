@@ -23,24 +23,22 @@ class SponsorsDataMapper
                 ? "{$baseSlug}-{$sponsor['id']}"
                 : $baseSlug;
 
-            $shortDescription = trim((string) ($sponsor['short_description'] ?? ''));
-            $longDescription = trim((string) ($sponsor['long_description'] ?? ''));
+            $shortDescription = $this->textValue($sponsor, [
+                'short_description',
+                'descricao_curta',
+                'descricao',
+                'resumo',
+            ]);
+            $longDescription = $this->textValue($sponsor, [
+                'long_description',
+                'descricao_longa',
+                'historia',
+                'descricao_completa',
+                'sobre',
+            ]);
 
-            $description = $shortDescription !== ''
-                ? $shortDescription
-                : $this->textValue($sponsor, [
-                    'descricao',
-                    'descricao_curta',
-                    'resumo',
-                ]);
-
-            $story = $longDescription !== ''
-                ? $longDescription
-                : $this->textValue($sponsor, [
-                    'historia',
-                    'descricao_completa',
-                    'sobre',
-                ]);
+            $description = $shortDescription;
+            $story = $longDescription;
 
             $featuredRank = $this->featuredRank(
                 (int) ($sponsor['id'] ?? 0),
@@ -48,19 +46,36 @@ class SponsorsDataMapper
                 (string) ($sponsor['nome'] ?? ''),
             );
 
+            $place = $this->mapPlace($sponsor);
+            $phone = $this->textValue($sponsor, ['telefone', 'phone']);
+            $whatsapp = $this->textValue($sponsor, ['whatsapp']);
+            $highlights = $this->stringList($sponsor['diferenciais'] ?? $sponsor['highlights'] ?? []);
+            $logo = $this->textValue($sponsor, ['logo_url', 'logo']);
+
             return [
                 'id' => (int) ($sponsor['id'] ?? 0),
                 'slug' => $slug,
                 'name' => (string) ($sponsor['nome'] ?? ''),
-                'logo' => $this->resolveLogoUrl((string) ($sponsor['logo'] ?? '')),
+                'logo' => $this->resolveLogoUrl($logo),
                 'logoMobile' => $this->resolveLogoMobileUrl($sponsor),
-                'website' => SafeUrl::httpHttpsOnly((string) ($sponsor['url'] ?? '')),
+                'website' => SafeUrl::httpHttpsOnly($this->textValue($sponsor, ['site', 'url'])),
                 'shortDescription' => $shortDescription !== '' ? $this->plainText($shortDescription) : '',
-                'description' => $description,
+                'description' => $this->plainText($description),
                 'story' => $story,
                 'fullDescription' => $story,
                 'videoUrl' => SafeUrl::httpHttpsOnly((string) ($sponsor['video_url'] ?? '')),
                 'role' => $featuredRank < PHP_INT_MAX ? 'sponsor' : 'partner',
+                'category' => $this->textValue($sponsor, ['categoria', 'category']),
+                'address' => $place['address'],
+                'city' => $place['city'],
+                'state' => $place['state'],
+                'phone' => $phone,
+                'whatsapp' => $whatsapp,
+                'email' => $this->emailValue($sponsor),
+                'highlights' => $highlights,
+                'coordinates' => $place['coordinates'] ?? $this->mapCoordinates($sponsor),
+                'socials' => $this->mapSocials($sponsor),
+                'gallery' => $this->mapGallery($sponsor),
             ];
         }, $sponsors));
 
@@ -91,6 +106,168 @@ class SponsorsDataMapper
         }
 
         return '';
+    }
+
+    /**
+     * @param  mixed  $value
+     * @return array<int, string>
+     */
+    private function stringList(mixed $value): array
+    {
+        if (! is_array($value)) {
+            return [];
+        }
+
+        $items = [];
+
+        foreach ($value as $item) {
+            if (is_string($item) && trim($item) !== '') {
+                $items[] = trim($item);
+            } elseif (is_array($item)) {
+                $label = trim((string) ($item['nome'] ?? $item['label'] ?? $item['titulo'] ?? ''));
+
+                if ($label !== '') {
+                    $items[] = $label;
+                }
+            }
+        }
+
+        return array_values($items);
+    }
+
+    /**
+     * @param  array<string, mixed>  $sponsor
+     * @return array{lat: float, lng: float}|null
+     */
+    /**
+     * @param  array<string, mixed>  $sponsor
+     * @return array{address: string, city: string, state: string, coordinates: array{lat: float, lng: float}|null}
+     */
+    private function mapPlace(array $sponsor): array
+    {
+        $endereco = $sponsor['endereco'] ?? null;
+
+        if (is_array($endereco)) {
+            $street = trim(implode(', ', array_filter([
+                trim((string) ($endereco['logradouro'] ?? '')),
+                trim((string) ($endereco['numero'] ?? '')),
+            ], fn (string $part): bool => $part !== '')));
+            $extra = trim(implode(' - ', array_filter([
+                trim((string) ($endereco['complemento'] ?? '')),
+                trim((string) ($endereco['bairro'] ?? '')),
+            ], fn (string $part): bool => $part !== '')));
+            $address = trim(implode(' - ', array_filter([$street, $extra], fn (string $part): bool => $part !== '')));
+
+            return [
+                'address' => $address,
+                'city' => trim((string) ($endereco['cidade'] ?? '')),
+                'state' => trim((string) ($endereco['uf'] ?? $endereco['estado'] ?? '')),
+                'coordinates' => $this->coordinatesFrom($endereco['latitude'] ?? null, $endereco['longitude'] ?? null),
+            ];
+        }
+
+        return [
+            'address' => $this->textValue($sponsor, ['endereco_completo', 'address']),
+            'city' => $this->textValue($sponsor, ['cidade', 'city']),
+            'state' => $this->textValue($sponsor, ['estado', 'uf', 'state']),
+            'coordinates' => null,
+        ];
+    }
+
+    /**
+     * @param  array<string, mixed>  $sponsor
+     * @return array<int, array{label: string, url: string}>
+     */
+    private function mapSocials(array $sponsor): array
+    {
+        $source = is_array($sponsor['redes_sociais'] ?? null) ? $sponsor['redes_sociais'] : [];
+        $labels = [
+            'instagram' => 'Instagram',
+            'facebook' => 'Facebook',
+            'linkedin' => 'LinkedIn',
+            'tiktok' => 'TikTok',
+            'youtube' => 'YouTube',
+        ];
+        $links = [];
+
+        foreach ($labels as $key => $label) {
+            $url = SafeUrl::httpHttpsOnly(trim((string) ($source[$key] ?? '')));
+
+            if ($url !== '') {
+                $links[] = ['label' => $label, 'url' => $url];
+            }
+        }
+
+        return $links;
+    }
+
+    /**
+     * @param  array<string, mixed>  $sponsor
+     * @return array<int, string>
+     */
+    private function mapGallery(array $sponsor): array
+    {
+        $gallery = $sponsor['galeria'] ?? [];
+
+        if (! is_array($gallery)) {
+            return [];
+        }
+
+        $urls = [];
+
+        foreach ($gallery as $item) {
+            $raw = '';
+
+            if (is_string($item)) {
+                $raw = $item;
+            } elseif (is_array($item)) {
+                $raw = $this->textValue($item, ['url', 'imagem', 'src', 'logo_url']);
+            }
+
+            $url = $this->resolveLogoUrl($raw);
+
+            if ($url !== '') {
+                $urls[] = $url;
+            }
+        }
+
+        return $urls;
+    }
+
+    private function emailValue(array $sponsor): string
+    {
+        $email = trim((string) ($sponsor['email'] ?? ''));
+
+        return filter_var($email, FILTER_VALIDATE_EMAIL) ? $email : '';
+    }
+
+    private function mapCoordinates(array $sponsor): ?array
+    {
+        $lat = $sponsor['latitude'] ?? $sponsor['lat'] ?? null;
+        $lng = $sponsor['longitude'] ?? $sponsor['lng'] ?? $sponsor['lon'] ?? null;
+
+        if (is_array($sponsor['coordenadas'] ?? null)) {
+            $lat = $lat ?? ($sponsor['coordenadas']['lat'] ?? $sponsor['coordenadas']['latitude'] ?? null);
+            $lng = $lng ?? ($sponsor['coordenadas']['lng'] ?? $sponsor['coordenadas']['longitude'] ?? null);
+        }
+
+        return $this->coordinatesFrom($lat, $lng);
+    }
+
+    private function coordinatesFrom(mixed $lat, mixed $lng): ?array
+    {
+        if (! is_numeric($lat) || ! is_numeric($lng)) {
+            return null;
+        }
+
+        if ((float) $lat === 0.0 && (float) $lng === 0.0) {
+            return null;
+        }
+
+        return [
+            'lat' => (float) $lat,
+            'lng' => (float) $lng,
+        ];
     }
 
     private function plainText(string $html): string

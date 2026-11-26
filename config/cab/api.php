@@ -40,7 +40,7 @@ return [
         'platform_materials' => env('CAB_API_PLATFORM_MATERIALS', 'materiais'),
         'sponsors' => env(
             'CAB_API_SPONSORS',
-            'https://crm.cambioautomaticodobrasil.com.br/api/app/patrocinadores',
+            'https://crm.cambioautomaticodobrasil.com.br/api/site/patrocinadores',
         ),
         'newsletter' => env('CAB_API_NEWSLETTER', ''),
         'home_cta' => env('CAB_API_HOME_CTA', ''),

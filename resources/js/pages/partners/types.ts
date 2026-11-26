@@ -29,6 +29,9 @@ export interface Partner {
   state?: string;
   phone?: string;
   whatsapp?: string;
+  email?: string;
+  socials?: Array<{ label: string; url: string }>;
+  gallery?: string[];
   partnershipLevel?: "Ouro" | "Prata" | "Bronze";
   since?: string;
   highlights?: string[];
