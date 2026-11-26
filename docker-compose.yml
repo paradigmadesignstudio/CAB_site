@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8001:8000"
+      - "5173:5173"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DOCKER: "1"
+      DEV_PUBLIC_HOST: ${DEV_PUBLIC_HOST:-100.111.216.105}
+      APP_URL: ${APP_URL:-http://100.111.216.105:8001}
+    command: ["bash", "docker/dev.sh"]
