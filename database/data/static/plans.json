@@ -108,8 +108,7 @@
     { "label": "Corpo de Válvulas + AirCheck + Checkball", "p1": false, "p2": true, "p3": true },
     { "label": "Folga das Embreagens + Freewheel Book", "p1": false, "p2": true, "p3": true },
     { "label": "Transmissões Automatizadas (CVT, DSG, Powershift, Dualogic, Easytronic, Sequencial)", "p1": false, "p2": true, "p3": true },
-    { "label": "Caixa de Transferência", "p1": false, "p2": true, "p3": true },
-    { "label": "Híbridos e Elétricos", "p1": false, "p2": false, "p3": true }
+    { "label": "Caixa de Transferência", "p1": false, "p2": true, "p3": true }
   ],
   "comparisonContent": {
     "title": "Compare os Níveis de Assinatura",

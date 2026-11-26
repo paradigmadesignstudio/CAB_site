@@ -110,10 +110,10 @@ export function BenefitsTable({ title, description, rows, plans }: BenefitsTable
                 >
                   <PlanCtaButton
                     href={plan.href}
-                    className={`inline-flex items-center justify-center gap-1 sm:gap-2 bg-[#003B7A] text-white font-semibold px-3 py-2 sm:px-6 sm:py-3.5 rounded-xl text-[10px] sm:text-xs md:text-sm shadow-lg hover:shadow-xl hover:bg-[#002B5A] transition-all transform hover:-translate-y-0.5 w-full max-w-[110px] sm:max-w-none mx-auto whitespace-normal sm:whitespace-nowrap ${
+                    className={`inline-flex items-center justify-center gap-1 sm:gap-2 font-semibold px-3 py-2 sm:px-6 sm:py-3.5 rounded-xl text-[10px] sm:text-xs md:text-sm shadow-lg hover:shadow-xl transition-colors w-full max-w-[110px] sm:max-w-none mx-auto whitespace-normal sm:whitespace-nowrap ${
                       plan.popular
-                        ? "bg-secondary text-white hover:bg-secondary/90 shadow-lg hover:scale-105 transition-transform"
-                        : "border-[#003B7A]/50 text-white hover:bg-white/10"
+                        ? "bg-secondary text-white hover:bg-[#00802f]"
+                        : "bg-[#003B7A] text-white hover:bg-[#002B5A]"
                     }`}
                   >
                     {plan.ctaText}

@@ -17,6 +17,7 @@ import { FAQAccordion } from "@/pages/components/FAQAccordion";
 import { FinalCTA } from "./components/FinalCTA";
 import {
   buildIncludedTrainingsBenefitCells,
+  formatIncludedTrainingsCount,
   INCLUDED_TRAININGS_BENEFIT_LABEL,
   isIncludedTrainingsBenefitRow,
 } from "@/pages/plans/lib/trainingCounts";
@@ -77,6 +78,23 @@ export default function PlansPage({
     popular: plan.popular ?? false,
   }));
 
+  const plansForCards = useMemo(() => {
+    const premiumCount = trainingsTableMeta?.planSummary?.[2]?.count;
+
+    if (!premiumCount) {
+      return plansWithPopular;
+    }
+
+    const label = formatIncludedTrainingsCount(premiumCount, true);
+
+    return plansWithPopular.map((plan) => ({
+      ...plan,
+      features: plan.features.map((feature) =>
+        /cursos de c[aâ]mbios/i.test(feature) ? label : feature,
+      ),
+    }));
+  }, [plansWithPopular, trainingsTableMeta?.planSummary]);
+
   const benefitsRows = useMemo(() => {
     const dynamicCells = trainingsTableMeta?.planSummary
       ? buildIncludedTrainingsBenefitCells(trainingsTableMeta.planSummary)
@@ -136,7 +154,7 @@ export default function PlansPage({
             ecosystemPromoPrice={staticContent.ecosystemPromoPrice}
           />
           <PlanCardsGrid
-            plans={plansWithPopular}
+            plans={plansForCards}
             prices={prices}
             withEcosystem={withEcosystem}
             withFidelity={withFidelity}
