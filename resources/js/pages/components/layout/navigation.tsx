@@ -69,7 +69,7 @@ export function Navigation() {
 
   // Desktop a partir de xl (1280px): iPad Pro 1024 mantém chrome mobile.
   const desktopAssociateButtonClass =
-    "hidden items-center justify-center bg-[#319600] text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-transform hover:scale-105 active:scale-95 xl:inline-flex"
+    "hidden items-center justify-center bg-[#319600] text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors duration-300 hover:bg-[#3cb000] xl:inline-flex"
 
   const mobileAssociateButtonClass =
     "inline-flex items-center justify-center bg-[#319600] text-white px-5 py-3 rounded-full font-bold text-sm tracking-wide w-full transition-transform hover:scale-[1.02] active:scale-[0.98]"
@@ -86,7 +86,7 @@ export function Navigation() {
     >
       <div className="mx-auto grid max-w-7xl max-xl:grid-cols-[minmax(0,1fr)_auto] xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-3 px-4 py-3 sm:px-6 sm:py-4">
         <Link href="/" prefetch={INERTIA_PREFETCH_HOVER} className="flex min-w-0 items-center justify-self-start">
-          <div className="transition-transform duration-200 hover:scale-105">
+            <div className="transition-opacity duration-300 hover:opacity-80">
             <img
               src="/images/geral/cab_sem_fundo.svg"
               alt="Câmbio Automático do Brasil"
@@ -110,7 +110,7 @@ export function Navigation() {
                 type="button"
                 onClick={() => scrollToSection(item.href)}
                 onMouseEnter={() => inertiaPrefetchPath(item.href)}
-                className="relative flex items-center text-sm font-bold tracking-wide text-[#003B7A]/80 transition-colors hover:text-[#009739] hover:scale-105 active:scale-95"
+                className="relative flex items-center text-sm font-bold tracking-wide text-[#003B7A]/80 transition-colors duration-300 hover:text-[#009739] after:absolute after:inset-x-0 after:-bottom-1.5 after:h-px after:origin-left after:scale-x-0 after:bg-[#009739] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 <TextWithCab text={item.label} />
                 {item.subLinks && (
