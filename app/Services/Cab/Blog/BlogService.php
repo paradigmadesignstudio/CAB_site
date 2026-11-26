@@ -42,6 +42,11 @@ class BlogService
             return $this->mapper->mapEmptyIndexPageContent();
         }
 
+        $this->client->warm([
+            (string) config('cab.endpoints.blog.posts'),
+            (string) config('cab.endpoints.events'),
+        ]);
+
         $columnists = config('cab.features.blog_columnists_enabled')
             ? $this->getColumnists()
             : [];
