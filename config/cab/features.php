@@ -11,7 +11,7 @@
 
 return [
 
-    'oficinas_enabled' => filter_var(env('OFICINAS_ENABLED', false), FILTER_VALIDATE_BOOL),
+    'oficinas_enabled' => filter_var(env('OFICINAS_ENABLED', true), FILTER_VALIDATE_BOOL),
 
     'preview_routes_enabled' => filter_var(env('PREVIEW_ROUTES_ENABLED', false), FILTER_VALIDATE_BOOL),
 
